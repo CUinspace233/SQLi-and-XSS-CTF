@@ -32,7 +32,6 @@ const client = new Client({
 
 client.connect();
 
-// login interface (vulnerable to SQL injection)
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
@@ -57,7 +56,7 @@ app.post("/login", async (req, res) => {
 app.post("/query-grade", async (req, res) => {
   const { key } = req.body;
 
-  // WAF: block common SQL keywords
+  // block common SQL keywords
   const wafKeywords = [
     "SELECT",
     "FROM",
@@ -148,7 +147,7 @@ app.get("/admin/messages/:id", async (req, res) => {
 
     res.cookie("adminFlag", "CUINSPACE{yoU_ARe_GEnius}", {
       httpOnly: false, // so it can be accessed by JavaScript
-      secure: false, // should be true if https
+      secure: true, // set to false if http
       sameSite: "lax", // More secure than 'none' but less strict than 'strict' which blocks all cross-site requests
     });
 
@@ -182,7 +181,6 @@ app.post("/report-message", async (req, res) => {
     message: "Message reported successfully. An admin will review it shortly.",
   });
 
-  // Simulate admin viewing with real browser
   setTimeout(async () => {
     try {
       console.log(`Admin bot is reviewing message ${messageId}...`);

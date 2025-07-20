@@ -33,14 +33,12 @@ export default function XSS() {
   const [loading, setLoading] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  // New state for report functionality
   const [reportModalOpen, setReportModalOpen] = useState(false);
   const [reportingMessageId, setReportingMessageId] = useState<number | null>(null);
   const [reportReason, setReportReason] = useState("");
   const [reportLoading, setReportLoading] = useState(false);
   const [reportSuccess, setReportSuccess] = useState(false);
 
-  // Fetch messages on component mount
   useEffect(() => {
     fetchMessages();
   }, []);
@@ -68,11 +66,9 @@ export default function XSS() {
       setSubmitSuccess(true);
       setTimeout(() => setSubmitSuccess(false), 3000);
 
-      // Clear form
       setName("");
       setMessage("");
 
-      // Refresh messages
       await fetchMessages();
     } catch (error) {
       console.error("Error submitting message:", error);
@@ -102,7 +98,6 @@ export default function XSS() {
       setReportSuccess(true);
       setTimeout(() => setReportSuccess(false), 3000);
 
-      // Close modal and reset
       setReportModalOpen(false);
       setReportingMessageId(null);
       setReportReason("");
