@@ -8,12 +8,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:6841",
-      "https://*.vercel.app",
-      "https://vercel.app",
-      process.env.FRONTEND_URL,
-    ],
+    origin: ["http://localhost:6841", "https://ctf.cuinspace.tech", process.env.FRONTEND_URL],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
@@ -219,5 +214,5 @@ app.post("/report-message", async (req, res) => {
 });
 
 app.listen(PORT, HOST, () => {
-  console.log(`backend API running at ${BASE_URL}`);
+  console.log(`backend API running at http://${HOST}:${PORT}`);
 });
