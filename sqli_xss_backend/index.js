@@ -5,11 +5,25 @@ const { Client } = require("pg");
 const puppeteer = require("puppeteer");
 
 const app = express();
-app.use(cors());
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:6841",
+      "https://*.vercel.app",
+      "https://vercel.app",
+      process.env.FRONTEND_URL,
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+  }),
+);
+
 app.use(express.json());
 
 const PORT = process.env.PORT || 1314;
-const BASE_URL = process.env.BASE_URL || `http://localhost:1314`;
+const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
 
 const client = new Client({
   host: process.env.SUPABASE_HOST,
