@@ -190,7 +190,6 @@ app.post("/report-message", async (req, res) => {
       // Launch headless browser to simulate admin viewing
       const browser = await puppeteer.launch({
         headless: false,
-        defaultViewport: null,
         executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", // local path to chrome
       });
       const page = await browser.newPage();

@@ -35,6 +35,7 @@ export default function SQLi2() {
           p: 4,
           borderRadius: "md",
           boxShadow: "sm",
+          width: "80%",
         }}
       >
         <Typography level="h2" component="h1" sx={{ mb: 2 }}>

@@ -105,9 +105,10 @@ export default function SQLi2Hints() {
               <Typography level="body-sm">
                 First, discover what tables exist in the database. Use the information_schema to
                 enumerate tables:
-                <br />• Use <code>UNION</code> to add your own SELECT statement
-                <br />• Query <code>information_schema.tables</code> to see all tables
-                <br />• Filter by current schema to see relevant tables
+                <br />• Use <code>'UNION</code> to add your own SELECT statement
+                <br />• Select <code>&lt;a number&gt;,table_name</code> to get the table name
+                <br />• Query from <code>information_schema.tables</code> to see all tables
+                <br />• Filter by <code>table_schema=current_schema()</code> to see relevant tables
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -119,9 +120,8 @@ export default function SQLi2Hints() {
             <AccordionDetails>
               <Typography level="body-sm">
                 Once you find interesting table names, discover their column structure:
-                <br />• Use <code>information_schema.columns</code> to see column names
-                <br />
-                • Filter by the table name you're interested in
+                <br />• Select <code>column_name</code> from <code>information_schema.columns</code> to see column names
+                <br />• Filter by the table name you're interested in, e.g. <code>table_name='flags'</code>
                 <br />• Look for columns that might contain sensitive data
               </Typography>
             </AccordionDetails>
