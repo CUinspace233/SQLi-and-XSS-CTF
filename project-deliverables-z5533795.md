@@ -19,7 +19,7 @@ There is a noticeable gap in challenge design that balances realism with educati
 
 ## 3. My Implementation
 
-This project includes the design and development of four challenges (basic SQLi, advanced SQLi, and stored XSS) using **React (frontend)**, **Node.js with Express (backend)**, and **Supabase (PostgreSQL)** as the database platform.
+This project includes the design and development of three challenges (basic SQLi, advanced SQLi, and stored XSS) using **React (frontend)**, **Express.js (backend)**, and **Supabase (PostgreSQL)** as the database platform.
 
 ### 3.1 Easy SQLi
 
@@ -505,6 +505,7 @@ This project's URL: [https://ctf.cuinspace.tech/](https://ctf.cuinspace.tech/) (
 - SQL Injection Bypassing WAF: [https://owasp.org/www-community/attacks/SQL_Injection_Bypassing_WAF](https://owasp.org/www-community/attacks/SQL_Injection_Bypassing_WAF)
 - Puppeteer Documentation: [https://pptr.dev/guides/browser-management](https://pptr.dev/guides/browser-management)
 - Supabase Documentation: [https://supabase.com/docs](https://supabase.com/docs)
+- Express.js Documentation: [https://expressjs.com/](https://expressjs.com/), [https://expressjs.com/en/resources/middleware/cors.html](https://expressjs.com/en/resources/middleware/cors.html)
 - Joy UI Documentation: [https://mui.com/joy-ui/getting-started/](https://mui.com/joy-ui/getting-started/)
 - React Issue: [https://github.com/facebook/react/issues/20446](https://github.com/facebook/react/issues/20446)
 
