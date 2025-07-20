@@ -1,0 +1,4 @@
+.specstory
+.cursorindexingignore
+node_modules
+.env
