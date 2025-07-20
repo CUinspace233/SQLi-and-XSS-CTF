@@ -142,21 +142,6 @@ export default function SQLi2Hints() {
               </Typography>
             </AccordionDetails>
           </Accordion>
-
-          <Accordion>
-            <AccordionSummary>
-              <Typography level="title-sm">Payload Construction Tips</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography level="body-sm">
-                Building your injection payload:
-                <br />• Start with <code>'</code> to break out of the original query
-                <br />• Use <code>Union/**/SeLECT/**/ ...</code> pattern
-                <br />• End with <code>--</code> to comment out the rest
-                <br />• Remember: no spaces, mixed case for keywords
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
         </AccordionGroup>
       </CardContent>
     </Card>

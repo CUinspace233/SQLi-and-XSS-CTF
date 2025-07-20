@@ -250,7 +250,6 @@ export default function XSS() {
                       <div
                         style={{
                           fontSize: "14px",
-                          color: "var(--joy-palette-text-secondary)",
                           lineHeight: 1.5,
                           wordWrap: "break-word",
                         }}
