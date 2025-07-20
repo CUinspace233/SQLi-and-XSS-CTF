@@ -11,7 +11,7 @@ export default function SQLi2() {
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:3001/query-grade", {
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/query-grade`, {
         key,
       });
       const display = res.data?.data?.length

@@ -157,7 +157,7 @@ app.post("/report-message", async (req, res) => {
       const axios = require("axios");
 
       try {
-        const response = await axios.get(`http://localhost:3001/admin/messages/${messageId}`, {
+        const response = await axios.get(`http://localhost:1314/admin/messages/${messageId}`, {
           headers: {
             Cookie: "adminSession=admin_session_token",
           },
@@ -237,7 +237,7 @@ app.post("/report-message", async (req, res) => {
       });
       const page = await browser.newPage();
 
-      await page.goto(`http://localhost:3001/admin/messages/${messageId}`);
+      await page.goto(`http://localhost:1314/admin/messages/${messageId}`);
 
       await page.evaluate(() => {
         document.cookie = "adminSession=admin_session_token";
@@ -346,6 +346,7 @@ app.post("/report-message", async (req, res) => {
 ## 6. References
 
 * PostgreSQL System Catalog Reference: [https://www.postgresql.org/docs/current/catalogs.html](https://www.postgresql.org/docs/current/catalogs.html)
+* Puppeteer Documentation: [https://pptr.dev/guides/browser-management](https://pptr.dev/guides/browser-management)
 * PayloadsAllTheThings: [https://github.com/swisskyrepo/PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
 * Supabase Documentation: [https://supabase.com/docs](https://supabase.com/docs)
 * Joy UI Documentation: [https://mui.com/joy-ui/getting-started/](https://mui.com/joy-ui/getting-started/)

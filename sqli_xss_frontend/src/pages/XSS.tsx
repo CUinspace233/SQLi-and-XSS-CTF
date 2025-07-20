@@ -47,7 +47,7 @@ export default function XSS() {
 
   const fetchMessages = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/get-messages");
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/get-messages`);
       setMessages(response.data.messages);
     } catch (error) {
       console.error("Error fetching messages:", error);
@@ -60,7 +60,7 @@ export default function XSS() {
 
     setLoading(true);
     try {
-      await axios.post("http://localhost:3001/submit-message", {
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/submit-message`, {
         name: name.trim(),
         message: message.trim(),
       });
@@ -82,7 +82,7 @@ export default function XSS() {
 
   const handleClearMessages = async () => {
     try {
-      await axios.delete("http://localhost:3001/delete-messages");
+      await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/delete-messages`);
       setMessages([]);
     } catch (error) {
       console.error("Error clearing messages:", error);
@@ -94,7 +94,7 @@ export default function XSS() {
 
     setReportLoading(true);
     try {
-      await axios.post("http://localhost:3001/report-message", {
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/report-message`, {
         messageId: reportingMessageId,
         reason: reportReason.trim(),
       });

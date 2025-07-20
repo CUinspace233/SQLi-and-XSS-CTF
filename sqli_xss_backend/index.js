@@ -8,6 +8,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const PORT = process.env.PORT || 1314;
+const BASE_URL = process.env.BASE_URL || `http://localhost:1314`;
+
 const client = new Client({
   host: process.env.SUPABASE_HOST,
   port: 6543,
@@ -182,7 +185,7 @@ app.post("/report-message", async (req, res) => {
       });
       const page = await browser.newPage();
 
-      await page.goto(`http://localhost:3001/admin/messages/${messageId}`);
+      await page.goto(`${BASE_URL}/admin/messages/${messageId}`);
 
       await page.evaluate(() => {
         document.cookie = "adminSession=admin_session_token";
@@ -200,6 +203,6 @@ app.post("/report-message", async (req, res) => {
   }, 2000);
 });
 
-app.listen(3001, () => {
-  console.log("backend API running at http://localhost:3001");
+app.listen(PORT, () => {
+  console.log(`backend API running at ${BASE_URL}`);
 });
