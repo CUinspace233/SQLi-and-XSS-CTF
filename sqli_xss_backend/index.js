@@ -22,8 +22,9 @@ app.use(
 
 app.use(express.json());
 
+const HOST = process.env.HOST || "localhost";
 const PORT = process.env.PORT || 1314;
-const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
+const BASE_URL = process.env.BASE_URL || `http://${HOST}:${PORT}`;
 
 const client = new Client({
   host: process.env.SUPABASE_HOST,
@@ -217,6 +218,6 @@ app.post("/report-message", async (req, res) => {
   }, 2000);
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, HOST, () => {
   console.log(`backend API running at ${BASE_URL}`);
 });
