@@ -8,7 +8,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:6841", "https://ctf.cuinspace.tech", process.env.FRONTEND_URL],
+    origin: ["http://localhost:6841", "https://ctf.cuinspace.com", process.env.FRONTEND_URL],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],

@@ -441,11 +441,11 @@ After a while, we can see the flag in our webhook!
 
 ### 3.4 Deployment
 
-I first deployed my frontend using Vercel and mapped it to my own subdomain `ctf.cuinspace.tech`. Later, I deployed the backend on an AWS EC2 instance.
+I first deployed my frontend using Vercel and mapped it to my own subdomain `ctf.cuinspace.com`. Later, I deployed the backend on an AWS EC2 instance.
 
 Initially, I accessed the backend using a raw IP address over HTTP, but since the frontend was served over HTTPS, all API requests were blocked due to mixed content restrictions.
 
-To solve this, I learned how to set up Nginx on the EC2 server to reverse proxy requests through a proper domain (`api.cuinspace.tech`), and I used Certbot to obtain and configure a valid SSL certificate.
+To solve this, I learned how to set up Nginx on the EC2 server to reverse proxy requests through a proper domain (`api.cuinspace.com`), and I used Certbot to obtain and configure a valid SSL certificate.
 
 Another key challenge was running Puppeteer on the EC2 instance to simulate an admin viewing messages. Since EC2 is a headless server with no GUI, I had to launch Puppeteer with `--no-sandbox` and set `headless: true`. This ensures Chromium can run in environments without GUI and avoids errors like "Missing X server or $DISPLAY" that occur in restricted Linux environments.
 
@@ -498,7 +498,7 @@ Another key challenge was running Puppeteer on the EC2 instance to simulate an a
 ## 5. Appendices
 This project's github repo: [https://github.com/CUinspace233/SQLi-and-XSS-CTF](https://github.com/CUinspace233/SQLi-and-XSS-CTF)
 
-This project's URL: [https://ctf.cuinspace.tech/](https://ctf.cuinspace.tech/) (Good Faith Policy!)
+This project's URL: [https://ctf.cuinspace.com/](https://ctf.cuinspace.com/) (Good Faith Policy!)
 
 ## 6. References
 
