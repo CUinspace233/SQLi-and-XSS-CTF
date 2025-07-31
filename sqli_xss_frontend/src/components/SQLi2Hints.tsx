@@ -76,7 +76,9 @@ export default function SQLi2Hints() {
             </AccordionSummary>
             <AccordionDetails>
               <Typography level="body-sm">
-                Before using UNION, you must:
+                You can take use of UNION to add your own SELECT statement.
+                <br />
+                But before using UNION, you must:
                 <br />
                 1. <strong>Find the column count</strong>:
                 <br />• Try <code>'/**/UnIoN/**/SeLECT/**/null--</code> (1 column)

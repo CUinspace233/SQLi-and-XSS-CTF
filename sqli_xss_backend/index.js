@@ -81,7 +81,6 @@ app.post("/query-grade", async (req, res) => {
     return res.status(400).json({ error: "Forbidden keyword or space detected" });
   }
 
-  // Intentionally NOT parameterized (vulnerable to SQLi)
   const sql = `SELECT id, grade FROM users WHERE key = '${key}'`;
 
   console.log("executed SQL:", sql);
@@ -105,7 +104,7 @@ app.post("/submit-message", async (req, res) => {
   console.log("Submitting message:", { name, message });
 
   try {
-    const result = await client.query(sql, [name, message]);
+    await client.query(sql, [name, message]);
     res.json({ success: true, message: "Message submitted successfully!" });
   } catch (err) {
     console.error("Error submitting message:", err);
@@ -193,10 +192,6 @@ app.post("/report-message", async (req, res) => {
       const page = await browser.newPage();
 
       await page.goto(`${BASE_URL}/admin/messages/${messageId}`);
-
-      await page.evaluate(() => {
-        document.cookie = "adminSession=admin_session_token";
-      });
 
       // Wait for any scripts to execute
       await new Promise((resolve) => setTimeout(resolve, 10000));
